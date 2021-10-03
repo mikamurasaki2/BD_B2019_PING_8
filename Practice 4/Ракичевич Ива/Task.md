@@ -1,14 +1,17 @@
 # Задание 1
 ## а)
 
-SELECT LastName FROM Reader
+SELECT reader.LastName FROM Reader reader
 
-WHERE Reader.Address = 'Москва';
+WHERE reader.Address = 'Москва';
 
 ## б)
 
-SELECT Author, Title FROM Book
+SELECT book.Author, book.Title FROM Book book
 
-JOIN Reader ON Borrowing.ReaderNr = Reader.ID
+JOIN Borrowing borrowing ON reader.ID = borrowing.ReaderNr
 
-WHERE Reader.LastName = 'Иванов' AND Reader.FirstName = 'Иван';
+JOIN Book book ON borrowing.ISBN = book.ISBN
+
+WHERE reader.LastName = 'Иванов' AND reader.FirstName = 'Иван';
+
