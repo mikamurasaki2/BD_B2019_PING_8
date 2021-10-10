@@ -1,17 +1,34 @@
 # Задание 1
+
 ## а)
 
-SELECT reader.LastName FROM Reader reader
-
-WHERE reader.Address = 'Москва';
+SELECT lastName FROM reader WHERE address = 'Москва';
 
 ## б)
 
-SELECT book.Author, book.Title FROM Book book
+SELECT author, title FROM book 
 
-JOIN Borrowing borrowing ON reader.ID = borrowing.ReaderNr
+INNER JOIN borrowing
 
-JOIN Book book ON borrowing.ISBN = book.ISBN
+ON borrowing.ISBN = book.ISBN
 
-WHERE reader.LastName = 'Иванов' AND reader.FirstName = 'Иван';
+INNER JOIN reader
+
+ON reader.ID = borrowing.readerNr 
+
+WHERE reader.firstName = 'Иван' AND reader.lastName = 'Иванов';
+
+## в)
+
+SELECT ISBN FROM BookCat bc1 WHERE bc1.CategoryName = 'Горы'
+
+AND NOT EXISTS ( SELECT * FROM BookCat bc2 WHERE bc2.ISBN = bc1.ISBN 
+
+AND bc2.CategoryName = 'Путешествия' )
+
+## г)
+
+SELECT DISTINCT LastName, FirstName, FROM Reader, Borrowing bor
+
+WHERE Reader.ID = bor.ReaderNR AND EXISTS (
 
