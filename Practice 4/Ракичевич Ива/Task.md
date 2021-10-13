@@ -32,13 +32,15 @@ SELECT DISTINCT LastName, FirstName FROM Reader, Borrowing bor
 
 WHERE Reader.ID = bor.ReaderNR AND EXISTS (
 
-  SELECT * FROM Borrowing WHERE bor.ISBN = Borrowing.ISBN 
+SELECT * FROM Borrowing WHERE bor.ISBN = Borrowing.ISBN 
   
-  AND bor.CopyNumber = Borrowing.CopyNumber
+AND bor.CopyNumber = Borrowing.CopyNumber
   
-  AND bor.ReturnDate = Borrowi.ReturnDate )
+AND bor.ReturnDate = Borrowi.ReturnDate )
 
 ## д)
+
+'''sql
 
 SELECT DISTINCT LastName, FirstName FROM Reader r
 
@@ -46,12 +48,12 @@ WHERE Reader.ID = Borrowing.ReaderNr AND NOT (LastName = 'Иванов' and Firs
 
 AND Borrowing.ISBN in (
   
-  SELECT DISTINCT Borrowing.ISBN FROM Borrowing
+SELECT DISTINCT Borrowing.ISBN FROM Borrowing
   
-  WHERE Borrowing.ReaderNr in (
+WHERE Borrowing.ReaderNr in (
   
-    SELECT Reader.ID FROM Reader WHERE Reader.LastName = 'Иванов'
+SELECT Reader.ID FROM Reader WHERE Reader.LastName = 'Иванов'
     
-    AND Reader.FirstName = 'Иван')
+AND Reader.FirstName = 'Иван')
     
-    )
+)
