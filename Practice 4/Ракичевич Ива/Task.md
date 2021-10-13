@@ -56,4 +56,21 @@ AND Reader.FirstName = 'Иван')
     
 )
 
+# Задание 2
+
+## а)
+
+SELECT TrainNr FROM Connection 
+
+JOIN Station EndStation 
+
+ON EndStation.Name = Connection.ToStation
+
+JOIN Station StartStation 
+
+ON StartStation.Name = Connection.FromStation 
+
+
+
+
 
