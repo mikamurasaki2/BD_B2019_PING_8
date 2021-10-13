@@ -40,8 +40,6 @@ AND bor.ReturnDate = Borrowi.ReturnDate )
 
 ## д)
 
-## '''sql
-
 SELECT DISTINCT LastName, FirstName FROM Reader r
 
 WHERE Reader.ID = Borrowing.ReaderNr AND NOT (LastName = 'Иванов' and FirstName = 'Иван')
@@ -57,3 +55,5 @@ SELECT Reader.ID FROM Reader WHERE Reader.LastName = 'Иванов'
 AND Reader.FirstName = 'Иван')
     
 )
+
+
