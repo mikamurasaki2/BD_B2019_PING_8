@@ -40,7 +40,7 @@ AND bor.ReturnDate = Borrowi.ReturnDate )
 
 ## д)
 
-'''sql
+## '''sql
 
 SELECT DISTINCT LastName, FirstName FROM Reader r
 
